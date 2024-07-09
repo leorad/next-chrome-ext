@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react'
 
 import { useAudioRecorder } from 'react-audio-voice-recorder'
-import { StatusMessages } from '../@types/StatusMessages'
+import { StatusMessages } from '@/@types/StatusMessages'
 
 export default function useAssistant() {
   const [file, setFile] = useState<File | null>(null)
@@ -36,7 +36,7 @@ export default function useAssistant() {
     }
 
     const response = await fetch(
-      import.meta.env.VITE_BACKEND_URL + '/ai/speech',
+      process.env.BACKEND_URL + '/ai/speech',
       {
         method: 'POST',
         body: formData,

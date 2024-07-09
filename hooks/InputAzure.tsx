@@ -22,7 +22,7 @@ export default function useSpeech() {
   }, [processedText])
 
   const connectToSocket = async () => {
-    const newSocket = io(`${import.meta.env.VITE_AZURE_URI}`, {
+    const newSocket = io(`${process.env.AZURE_URI}`, {
       transports: ['websocket'],
     })
     setIsConnected(true)
