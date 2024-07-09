@@ -1,0 +1,29 @@
+body {
+    margin: 0;
+}
+
+/* Mudança de cor do marker no Editor */
+.cdx-marker {
+    background-color: #d4ecff;
+}
+
+.codex-editor__redactor {
+    padding-bottom: 0 !important;
+}
+
+/* Classe que usamos para mostar o icones do Recorder */
+.audio-recorder-mic {
+    height: 2.5rem !important;
+    font-family: 'FontAwesome'; /* Substitua pelo nome da sua fonte de ícones */
+
+}
+
+.audio-recorder-options {
+    height: 2.5rem !important;
+
+}
+
+/* Usado para garantir quebras de linhas dentro do editor */
+.ce-paragraph{
+    white-space: pre-line !important;
+}
