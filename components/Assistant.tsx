@@ -5,7 +5,7 @@ import React, {
   SetStateAction,
   useRef,
 } from 'react'
-import { StatusMessages } from '../@types/StatusMessages'
+import { StatusMessages } from '@/@types/StatusMessages'
 import { Button, Card, Col, Input, Popover, Row, Space } from 'antd'
 import {
   CaretRightOutlined,

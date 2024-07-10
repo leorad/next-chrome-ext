@@ -14,8 +14,7 @@ export default function RootLayout({
 }) {
 
   return (
-    <html style={{height:"100vh"}} title="Laudos com IA" lang="pt-br">
-      <meta name="description" content="Estruture seu laudo com o assistante de radiologista"></meta>
+    <html style={{ height: "100vh" }} title="Laudos com IA" lang="pt-br">
       <ConfigProvider
         theme={{
 
@@ -24,9 +23,9 @@ export default function RootLayout({
           },
           // algorithm: theme.darkAlgorithm,
         }}>
-        <body style={{height:"100%"}} className={font.className}>
+        <body style={{ height: "100%" }} className={font.className}>
 
-            <AntdRegistry>{children}</AntdRegistry>
+          <AntdRegistry>{children}</AntdRegistry>
 
         </body>
       </ConfigProvider>

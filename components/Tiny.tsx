@@ -328,9 +328,6 @@ export const EditorTinyMCE = ({ initialValue }: EditorProps) => {
                 init={{
                     min_height: 300,
                     height: '100%',
-                    language_url:
-                        location.origin +
-                        `/public/tinymce/js/tinymce/langs/${t('layout.tiny')}.js`,
                     menubar: false,
                     statusbar: false,
                     browser_spellcheck: false,

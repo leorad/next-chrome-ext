@@ -5,8 +5,10 @@ import { useEffect, useState, useRef } from 'react'
 // import { useGetDirectory } from '~/domains/library/hooks/api/directory/useGetDirectory'
 // import api from '~/services/api'
 
-const worker = new Worker(window.location.origin + '/replacer.worker.js')
-
+let worker: Worker | null = null;
+  if (typeof window !== 'undefined') {
+    worker = new Worker('/replacer.worker.js');
+  }
 export const useAutotext = () => {
   const [processedText, setProcessedText] = useState<string>('')
   const [replacements, setReplacements] = useState<
@@ -79,16 +81,21 @@ export const useAutotext = () => {
 
   const replaceText = (text: string) => {
     if (hasAutotext(text)) {
-      worker.postMessage({ text, replacements: replacementsRef.current })
+      if (worker) {
+        worker.postMessage({ text, replacements: replacementsRef.current });
 
-      worker.onmessage = function (event) {
-        const processedText = event.data
-        setProcessedText(processedText)
+        worker.onmessage = function (event) {
+          const processedText = event.data;
+          setProcessedText(processedText);
+        };
+      } else {
+        console.warn('Web Worker is not supported in this environment.');
+        setProcessedText(text);
       }
     } else {
-      setProcessedText(text)
+      setProcessedText(text);
     }
-  }
+  };
 
   return { processedText, replaceText,phrases }
 }
